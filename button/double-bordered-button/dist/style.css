@@ -1,0 +1,44 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  background: #d1bda5;
+  display: grid;
+  place-items: center;
+}
+
+.btn {
+  font: 400 1.65rem/1 "Prata";
+  padding: 10px;
+  line-height: 1;
+  border: none;
+  background: rgba(255, 255, 255, 0);
+  color: #383027;
+  cursor: pointer;
+  position: relative;
+  transition: background cubic-bezier(0.76, 0, 0.24, 1) 0.15s;
+}
+.btn::before, .btn::after {
+  content: "";
+  display: block;
+  z-index: 0;
+  position: absolute;
+  inset: 0;
+  border: 2px solid currentColor;
+  transition: transform cubic-bezier(0.76, 0, 0.24, 1) 0.3s;
+}
+.btn::before {
+  transform: scale(1.075, 1);
+}
+.btn::after {
+  transform: scale(1.025, 1.2);
+}
+.btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transition-duration: 0.3s;
+}
+.btn:hover::before, .btn:hover::after {
+  transform: scale(1, 1);
+  transition-duration: 0.3s;
+}

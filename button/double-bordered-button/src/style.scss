@@ -1,0 +1,55 @@
+$duration: .3s;
+$durationBack: .15s;
+$ease: cubic-bezier(0.76, 0, 0.24, 1);
+
+html, body {
+	height: 100%;
+}
+
+body {
+	background: #d1bda5;
+	display: grid;
+	place-items: center;
+}
+
+.btn {
+	font: 400 1.65rem/1 "Prata";
+	padding: 1.55rem 4.5rem 1.25rem;
+	line-height: 1;
+	border: none;
+	background: rgba(#fff, 0);
+	color: #383027;
+	cursor: pointer;
+	position: relative;
+	transition: background $ease $durationBack;
+
+	&::before,
+	&::after {
+		content: "";
+		display: block;
+		z-index: 0;
+		position: absolute;
+		inset: 0;
+		border: 2px solid currentColor;
+		transition: transform $ease $duration;
+	}
+
+	&::before {
+		transform: scale(1.075, 1);
+	}
+
+	&::after {
+		transform: scale(1.025, 1.2);
+	}
+
+	&:hover {
+		background: rgba(#fff, 0.15);
+		transition-duration: $duration;
+
+		&::before,
+		&::after {
+			transform: scale(1, 1);
+			transition-duration: $duration;
+		}
+	}
+}
